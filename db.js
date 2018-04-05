@@ -31,8 +31,9 @@ const Ship = db.define('ship', {
   }
 })
 
-Ship.hasMany(Pirate);
-Pirate.belongsTo(Ship);
+// Both of these create a one-to-many relationship, where one ship has many pirates
+Ship.hasMany(Pirate); // This creates the magic methods on ships (e.g. ship.addPirate)
+Pirate.belongsTo(Ship); // This creates the magic methods on pirates  (e.g. pirate.setShip)
 
 const fakeShips = [
   {
